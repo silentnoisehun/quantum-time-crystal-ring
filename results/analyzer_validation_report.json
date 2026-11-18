@@ -1,0 +1,14 @@
+{
+  "null_test": {
+    "repetitions": 1000,
+    "false_supported_rate": 0.0,
+    "error_rate": 0.0,
+    "status": "PASS"
+  },
+  "power_analysis": {
+    "repetitions": 300,
+    "power_at_delta_min": 1.0,
+    "status": "PASS"
+  },
+  "analyzer_sha256": "70996dd7edea0d8e0699a8f928fcf372617fd4e76544dcc4bed9a42f0479183b"
+}

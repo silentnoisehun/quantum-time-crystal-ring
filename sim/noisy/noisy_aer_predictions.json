@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "type": "SZIMUL\u00c1CI\u00d3, F1-REFERENCIA",
+    "backend": "ibm_marrakesh",
+    "target": "ibm_marrakesh (Heron r2)",
+    "date_utc": "2026-11-18T18:00:00Z",
+    "date_budapest": "2026-11-18T19:00:00+01:00",
+    "shots": 2048,
+    "shots_power_analysis": {
+      "shot_noise_sigma": 0.00451,
+      "snr_at_tstar": 176.5,
+      "power_adequacy": "EXCELLENT (SNR > 30x shot noise floor)"
+    },
+    "qpu_execution_time_estimate_seconds": 7.8
+  },
+  "predictions_table_col3": {
+    "P1_interaction_protection_s_diff": 0.6605,
+    "s_J_at_tstar": 0.7962,
+    "s_J0_at_tstar": 0.1357,
+    "P1_ci99": [
+      0.6441,
+      0.677
+    ],
+    "P2_gumicsere_governing_factor": "PHYSICAL QUBIT DEFECTS COMPETE (device noise adds site-dependent readout/CZ variation)",
+    "P3_delta_eps_half": 0.082,
+    "J0_beat_frequency": 0.1,
+    "disorder_effect_W_vs_W0_diff": 0.0377,
+    "triangle_vs_open_path_diff": -0.38,
+    "decoherence_echo_floor_E_tstar": 0.7634
+  },
+  "trajectories": {
+    "s_J": [
+      0.936,
+      -0.8587,
+      0.8447,
+      -0.8571,
+      0.8482,
+      -0.8186,
+      0.7962,
+      -0.7942,
+      0.7864,
+      -0.7537,
+      0.7316,
+      -0.7217,
+      0.7045,
+      -0.6809,
+      0.6582,
+      -0.6396
+    ],
+    "s_J0": [
+      0.9427,
+      -0.8583,
+      0.7653,
+      -0.6391,
+      0.4865,
+      -0.3144,
+      0.1357,
+      0.0326,
+      -0.1747,
+      0.2803,
+      -0.3514,
+      0.3802,
+      -0.3644,
+      0.3115,
+      -0.2325,
+      0.1261
+    ]
+  }
+}

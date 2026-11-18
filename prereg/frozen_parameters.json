@@ -1,0 +1,36 @@
+{
+  "hardware_target": "ibm_marrakesh (Heron r2, 156Q)",
+  "authorized_deviation": "DEV-001 (by M\u00e1t\u00e9 R\u00f3bert)",
+  "selected_12_ring_qubits": [
+    131,
+    132,
+    133,
+    134,
+    135,
+    139,
+    155,
+    154,
+    153,
+    152,
+    151,
+    138
+  ],
+  "selected_3_triangle_qubits": [
+    151,
+    138,
+    131
+  ],
+  "nominal_J": 0.4,
+  "nominal_W": 1.5,
+  "nominal_eps0": 0.1,
+  "t_star": 6,
+  "T_max": 16,
+  "shots_per_circuit": 2048,
+  "familywise_alpha": 0.01,
+  "delta_min": 0.05,
+  "disorder_seed": 20261118,
+  "shuffle_seed": 20261119,
+  "bootstrap_seed": 20261120,
+  "total_circuits_count": 85,
+  "status": "FROZEN_FOR_PREREGISTRATION"
+}
