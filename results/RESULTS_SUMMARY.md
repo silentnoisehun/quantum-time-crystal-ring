@@ -1,23 +1,23 @@
 # Gate 8: Experimental Results Summary — IBM Marrakesh
 
 **Date & Time:** 2026-11-18 18:25 UTC | 19:25 Budapest  
-**Backend:** `ibm_marrakesh` (Heron r2, 156 superconducting qubits)  
+**Backend:** `ibm_marrakesh` (Heron r2, 156 superconducting qubits; authorized deviation DEV-001)  
 **Job ID:** `dbuupiv82tmc73du4u70`  
 **Total Circuits Executed:** 85 circuits $\times$ 2048 shots (unified single batch)  
 **Execution Runtime:** ~7.8 seconds on QPU  
-**Raw Data:** [`data/raw/raw_counts_dbuupiv82tmc73du4u70.json`](file:///E:/Silent%20Coder/quantum-time-crystal-ring/data/raw/raw_counts_dbuupiv82tmc73du4u70.json)  
-**Submission Record:** [`data/raw/submission_record_dbuupiv82tmc73du4u70.json`](file:///E:/Silent%20Coder/quantum-time-crystal-ring/data/raw/submission_record_dbuupiv82tmc73du4u70.json)  
-**Full Report:** [`results/qpu_analysis_report.json`](file:///E:/Silent%20Coder/quantum-time-crystal-ring/results/qpu_analysis_report.json)  
+**Raw Data:** [`data/raw/raw_counts_dbuupiv82tmc73du4u70.json`](../data/raw/raw_counts_dbuupiv82tmc73du4u70.json)  
+**Submission Record:** [`data/raw/submission_record_dbuupiv82tmc73du4u70.json`](../data/raw/submission_record_dbuupiv82tmc73du4u70.json)  
+**Full Machine Report:** [`results/qpu_analysis_report.json`](qpu_analysis_report.json)  
 
 ---
 
 ## 1. Executive Summary & Verdicts
 
-| Pre-Registered Hypothesis | Frozen Criterion | Hardware Outcome | Verdict |
+| Pre-Registered Observable | Frozen Criterion | Hardware Outcome | Verdict |
 | :--- | :--- | :--- | :--- |
-| **$P_1$: Interaction Protection (DTC Order)** | $\Delta S(t^*) = \|S_J(6)\| - \|S_{J=0}(6)\| > 0.05$, $p < 0.0033$, CI99 low $> 0$ | **$\Delta S(6) = +0.5527$** [99% CI: **0.5385, 0.5671**], $p < 10^{-5}$ | **SUPPORTED** |
-| **$P_2$: Gumicsere (Inhomogeneity Test)** | Comparison of order across cyclic disorder shifts $\sigma \in \{0, 3, 6, 9\}$ | $S \in [0.6448, 0.6690]$, $\text{Var} = 0.000076$ ($\sigma = 0.0087$) | **RING HOMOGENEITY CONFIRMED** |
-| **$P_3$: $\varepsilon$-Tolerance Plateau** | Plateau in $S_J(\varepsilon)$ vs collapse in $S_{J=0}(\varepsilon)$ | $S_J(\varepsilon=0.10) = 0.6690$ vs $S_{J=0}(\varepsilon=0.10) = 0.1163$ | **PLATEAU CONFIRMED** |
+| **$P_1$: Interaction Protection (DTC Order)** | $\Delta S(t^*) = \|S_J(6)\| - \|S_{J=0}(6)\| > 0.05$, $p < 0.0033$, CI99 low $> 0$ | **$\Delta S(6) = +0.5527$** [99% CI: **0.5385, 0.5671**], $p < 10^{-5}$ | **SUPPORTED (Tankönyvi QM teljesült; Máté jóslata nem)** |
+| **$P_2$: Gumicsere (Inhomogeneity Test)** | Comparison of order across cyclic disorder shifts $\sigma \in \{0, 3, 6, 9\}$ | $S \in [0.6448, 0.6690]$, $\text{Var} = 0.000076$ ($\sigma = 0.0087$) | **A zavar helye nem számított a gyűrűn, de kontroll és küszöb híján a peremtelen védelem nem állítható** |
+| **$P_3$: $\varepsilon$-Tolerance Plateau** | Plateau in $S_J(\varepsilon)$ vs collapse in $S_{J=0}(\varepsilon)$ | $S_J(\varepsilon=0.10) = 0.6690$ vs $S_{J=0}(\varepsilon=0.10) = 0.1163$ | **Plató megfigyelve** |
 
 ---
 
@@ -25,19 +25,19 @@
 
 Comparison of the pre-registered predictions against the live physical measurements from `ibm_marrakesh`:
 
-| Observable / Question | 1. Máté's Prediction (Lead Engineer) | 2. Textbook QM (Ideal Simulation) | 3. Noisy Aer Model (Device Snapshot) | 4. Hardware Actual (`ibm_marrakesh`) | Hardware Status |
+| Observable / Question | 1. Máté's Prediction (Lead Engineer) | 2. Textbook QM (Ideal Simulation) | 3. Noisy Aer Model (Marrakesh Snapshot) | 4. Hardware Actual (`ibm_marrakesh`) | Hardware Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **$P_1$: Interaction Contrast $\Delta S(6)$** | Exceeds Noisy Aer ($> +0.66$) via topological protection | **+0.8074** | **+0.6605** [0.6441, 0.6770] | **+0.5527** [0.5385, 0.5671] | **Positive DTC Effect Confirmed**; below Aer due to physical gate noise |
-| **$P_2$: Gumicsere (Disorder Invariance)** | Boundary-free ring protects against localized defects | Logical disorder governs ($\text{Var}=0$) | Device noise adds site variation | **$\text{Var} = 0.000076$** ($\Delta S_\text{max} \le 0.0242$) | **High Ring Invariance** |
-| **$P_3$: $\varepsilon$-Tolerance Plató** | Robust subharmonic plateau | High plateau ($\varepsilon_\text{half}=0.20$) | Decayed plateau ($\Delta \varepsilon_\text{half}=0.082$) | **$S_J(0.10) = 0.6690$**, $S_{J=0} = 0.1163$ | **Plateau Observed** |
-| **Beat Frequency of $J=0$** | $\Delta f = \varepsilon_0 = 0.10$ | $\Delta f = 0.10$ | $\Delta f \approx 0.10$ | **Phase inversion at $t=8$** ($S_{J=0} = -0.1852$) | **Standard Theory Confirmed** |
-| **Triangle Module (Frustration)** | Active dynamic loop | **-0.6565** ($S_\text{tri} = 0.0827$) | **-0.3800** | **$S_\text{tri} = +0.1917$, $S_\text{path} = +0.6673$** | **Frustration on odd ring** |
-| **Intra-Job Drift ($t=6$, 4 reps)** | Stable run | Stable | Stable | **$\sigma_\text{drift} = 0.0081$** ($m \in [0.6696, 0.6912]$) | **Excellent Calibration Stability** |
+| **$P_1$: Interaction Contrast $\Delta S(6)$** | Exceeds Noisy Aer ($> +0.66$) via topological protection | **+0.8074** | **+0.6605** [0.6441, 0.6770] | **+0.5527** [0.5385, 0.5671] | **Máté jóslata: nem teljesült.** (Mért +0.5527 elmarad az Aer +0.6605-től). A tankönyvi DTC védelem teljesült ($\Delta S > 0$), de az extra geometriai védelem elbukott. |
+| **$P_2$: Gumicsere (Disorder Invariance)** | Boundary-free ring protects against localized defects | Logical disorder governs ($\text{Var}=0$) | Device noise adds site variation | **$\text{Var} = 0.000076$** ($\Delta S_\text{max} \le 0.0242$) | **A zavar helye nem számított a gyűrűn**, de nyitott 12-es lánc kontroll és előre rögzített küszöb nélkül ebből nem következik, hogy a peremtelen gyűrű véd. |
+| **$P_3$: $\varepsilon$-Tolerance Plató** | Robust subharmonic plateau | High plateau ($\varepsilon_\text{half}=0.20$) | Decayed plateau ($\Delta \varepsilon_\text{half}=0.082$) | **$S_J(0.10) = 0.6690$**, $S_{J=0} = 0.1163$ | **Plató megfigyelve:** $J=0$ összeomlik, a hajtott $J=0.4$ stabil marad. |
+| **Beat Frequency of $J=0$** | $\Delta f = \varepsilon_0 = 0.10$ | $\Delta f = 0.10$ | $\Delta f \approx 0.10$ | **Phase inversion at $t=8$** ($S_{J=0} = -0.1852$) | **Tankönyvi QM igazolva** |
+| **Triangle Module ($N=3$)** | A zárt él aktív dinamikát tart fenn | **-0.6565** ($S_\text{tri} = 0.0827$, $S_\text{path} = 0.7392$) | **-0.3800** | **$S_\text{tri} = +0.1917$, $S_\text{path} = +0.6673$** | **Máté jóslata nem teljesült.** A zárt háromszög elnyomott (54 CZ a SWAP-ok miatt vs 24 CZ az úton). Kapuszám-illesztés nélkül a kapuzaj és a frusztráció hatása összeolvad. |
+| **Intra-Job Drift ($t=6$, 4 reps)** | Stable run | Stable | Stable | **$\sigma_\text{drift} = 0.0081$** ($m \in [0.6696, 0.6912]$) | **Stabil kalibráció (< 1% szórás)** |
 
-> [!NOTE]
-> **Interpretation of Máté's Prediction (Column 1):**  
-> Máté hypothesized that the boundary-free 12-qubit ring might provide emergent topological/geometric stabilization that outlasts standard open-system Lindbladian noise models ($\Delta S > +0.66$).  
-> The physical QPU measurement yields $\Delta S = +0.5527$ [0.5385, 0.5671]. While this definitively establishes discrete time-crystalline period doubling ($p < 10^{-5}$ over the non-interacting control), the magnitude is lower than both the ideal (+0.8074) and Aer noisy (+0.6605) models. The difference is fully accounted for by two-qubit CZ gate infidelities and spectator crosstalk on Heron r2. Standard textbook quantum mechanics is confirmed throughout.
+> [!IMPORTANT]
+> **A Jóslat Becsületes Értékelése:**  
+> Máté előregisztrált felfedező hipotézise az volt, hogy a perem nélküli 12-es gyűrű olyan topológiai/geometriai védelmet nyújt, ami miatt a periódus-kettőződés élettartama meghaladja a zajos Aer szimuláció jóslatát ($\Delta S > +0.66$).  
+> **Ez a jóslat elbukott.** A fizikai QPU-n mért kontraszt $+0.5527$ [99% CI: 0.5385, 0.5671], ami szignifikánsan alacsonyabb az Aer szimuláció által jósolt $+0.6605$-nél. A tankönyvi kvantummechanika által megkövetelt diszkrét időkristály-védelem valóságosan megjelent ($p < 10^{-5}$ a nem kölcsönható kontrollhoz képest), de azt a fizikai transmonok kapuhulladéka és a nézőpont-qubitek fáziszaja korlátozta, semmilyen „extra geometriai csoda” nem lépett fel.
 
 ---
 
@@ -65,47 +65,78 @@ Comparison of the pre-registered predictions against the live physical measureme
 | **15** | -0.4002 | +0.2290 | -0.3847 | +0.1577 | +0.2270 |
 | **16** | +0.3691 | -0.0864 | — | — | — |
 
-### Key Physical Observations:
-1. **Unbroken Period Doubling:** $m_J(t)$ alternates sign strictly for all 16 cycles: positive on even cycles, negative on odd cycles. Its envelope decays monotonically from 0.9619 down to 0.3691, purely governed by the physical decoherence rate ($T_1, T_2$).
-2. **Beat Frequency Dephasing at $J=0$:** Without many-body interactions, single-qubit perturbation error ($\varepsilon = 0.10$) accumulates linearly at $(1-\varepsilon)\pi$ per Floquet period. By $t=7$, $m_{J=0}$ passes through zero, and by $t=8$ it has inverted its phase entirely ($m_{J=0}(8) = -0.1156$), breaking period-doubling order.
-3. **Many-Body Interaction Locking:** At $J=0.4$, Ising interactions lock the relative phases of neighboring spins, preventing accumulated rotation errors and preserving subharmonic synchronization.
-
 ---
 
 ## 4. Perturbation Tolerance Sweep ($\varepsilon \in [0.00 \dots 0.20]$)
 
 | Perturbation $\varepsilon$ | $S_J(6)$ (DTC) | $S_{J=0}(6)$ (Trivial) | Contrast $\Delta S = \|S_J\| - \|S_{J=0}\|$ | Physical State |
 | :---: | :---: | :---: | :---: | :--- |
-| **0.00** | +0.7379 | +0.9522 | -0.2143 | Clean $\pi$-pulse limit (trivial oscillator) |
-| **0.03** | +0.7339 | +0.8431 | -0.1093 | Small angle deviation |
-| **0.06** | +0.7122 | +0.5883 | +0.1239 | Transition to DTC protection |
-| **0.10** | **+0.6690** | **+0.1163** | **+0.5527** | **Optimal Operating Window (Maximum Contrast)** |
-| **0.15** | +0.5628 | -0.3274 | +0.2354 | High perturbation: $J=0$ inverted |
-| **0.20** | +0.4362 | -0.3479 | +0.0883 | Large angle error: DTC order diminishing |
+| **0.00** | +0.7379 | +0.9522 | -0.2143 | Tiszta $\pi$-pulzus határeset (triviális forgás) |
+| **0.03** | +0.7339 | +0.8431 | -0.1093 | Kis szöghiba |
+| **0.06** | +0.7122 | +0.5883 | +0.1239 | Átmenet a DTC védelem tartományába |
+| **0.10** | **+0.6690** | **+0.1163** | **+0.5527** | **Optimális munkapont (maximális kontraszt)** |
+| **0.15** | +0.5628 | -0.3274 | +0.2354 | Nagy perturbáció: $J=0$ fázist fordított |
+| **0.20** | +0.4362 | -0.3479 | +0.0883 | Erős perturbáció: a DTC rend lecsökken |
 
 ---
 
-## 5. Geometric Inhomogeneity ("Gumicsere") Control
+## 5. Geometriai Inhomogenitás ("Gumicsere") Vizsgálata
 
-Cyclic shifts $\sigma \in \{0, 3, 6, 9\}$ of the quasi-disorder pattern $h_i \in [-W, W]$ on the physical ring:
+A kvázi-rendezetlenségi $h_i \in [-W, W]$ mintázat ciklikus eltolása $\sigma \in \{0, 3, 6, 9\}$ a fizikai gyűrűn:
+- Elforgatás 0: $S = 0.6690$
+- Elforgatás +3: $S = 0.6448$
+- Elforgatás +6: $S = 0.6594$
+- Elforgatás +9: $S = 0.6607$
 
-- Shift 0 (Physical layout 0): $S = 0.6690$
-- Shift 3 (Physical layout +3): $S = 0.6448$
-- Shift 6 (Physical layout +6): $S = 0.6594$
-- Shift 9 (Physical layout +9): $S = 0.6607$
-
-**Variance:** $\text{Var}(S) = 0.000076$  
-**Range:** $\max(S) - \min(S) = 0.0242$ (~3.6% variation)  
-**Conclusion:** The subharmonic response is largely independent of physical qubit defect localization, confirming that the continuous 12-qubit closed loop topology averages out hardware irregularities.
+**Szórás:** $\text{Var}(S) = 0.000076$ ($\sigma = 0.0087$)  
+**Összevetés:** A futáson belüli 4 azonos replika szórása $\sigma_\text{drift} = 0.0081$. A zavar pozíciójának variálása nem okozott a driftnél nagyobb eltérést.  
+**Kritikai korlát:** Nyitott 12-es lánc kontroll és előre definiált kvantitatív küszöb hiányában ebből nem következtethető ki, hogy a peremtelen topológia nyújt védelmet.
 
 ---
 
-## 6. Geometric Frustration: Triangle ($N=3$) vs Ring ($N=12$)
+## 6. Háromszög Modul ($N=3$) és a Kapuzaj Kérdése
 
-At $t^* = 6$:
-- **12-Qubit Bipartite Ring ($C_{12}$):** $S = +0.6690$ (Clear DTC order)
-- **3-Qubit Open Path ($P_3$):** $S = +0.6673$ (No geometric frustration, boundary spins flip cleanly)
-- **3-Qubit Closed Ring ($C_3$, Synthetic Triangle):** $S = +0.1917$ ($m(6) = +0.2497$, $m(7) = -0.1338$)
+$t^* = 6$-nál:
+- **12-Qubites Bipartit Gyűrű ($C_{12}$):** $S = +0.6690$
+- **3-Qubites Nyílt Út ($P_3$):** $S = +0.6673$ (24 CZ kapu a 6 ciklus alatt)
+- **3-Qubites Zárt Háromszög ($C_3$):** $S = +0.1917$ (54 CZ kapu a transmon SWAP-ok miatt)
 
-**Physical Explanation:**  
-A 3-cycle is an odd loop and cannot support an unfrustrated antiferromagnetic/Neel order (`010` has two identical nearest neighbors on a closed triangle). The geometric frustration causes rapid phase dephasing even in the presence of $J$, suppressing the period-doubling order parameter by over 71% relative to the 12-qubit bipartite ring.
+**Fizikai Magyarázat:**  
+Máté jóslata (a zárt él aktív dinamikát tart fenn) nem teljesült; a zárt háromszög erősen elnyomott. Bár a páratlan ciklus geometriai frusztrációt okoz a Néel-állapotban (`010`), a hardveres megvalósításban az aktív SWAP routing miatt **54 CZ kapu** futott, míg a nyitott útnál csak **24 CZ kapu**. Kapuszámra illesztett kontroll hiányában a kapudekoherencia és a geometriai frusztráció hatása összeolvad, nem választható szét.
+
+---
+
+## 7. Nyers Adatok Sorrendje & Determinisztikus Visszafejtés (Shuffle Inversion)
+
+A hardveres szisztematikus drift és időbeli torzítás elkerülése érdekében az 85 áramkör **determinisztikusan keverve** (seed: `20261119`) futott a QPU-n.
+
+A [`data/raw/raw_counts_dbuupiv82tmc73du4u70.json`](../data/raw/raw_counts_dbuupiv82tmc73du4u70.json) fájlban a mérési eredmények a lefutott sorrendben találhatók. Az eredeti áramkörökhöz való hozzárendeléshez a [`data/raw/submission_record_dbuupiv82tmc73du4u70.json`](../data/raw/submission_record_dbuupiv82tmc73du4u70.json) fájlban tárolt `execution_order` tömböt kell használni:
+
+```python
+import json
+
+# 1. Betöltés
+with open("prereg/circuit_table.json") as f:
+    table = json.load(f)["circuits"]
+with open("data/raw/submission_record_dbuupiv82tmc73du4u70.json") as f:
+    order = json.load(f)["execution_order"]
+with open("data/raw/raw_counts_dbuupiv82tmc73du4u70.json") as f:
+    raw_counts = json.load(f)["counts"]
+
+# 2. Visszafejtés (az i-edik lefutott mérés a table[order[i]] áramkörhöz tartozik)
+circuits_by_id = {}
+for i, orig_idx in enumerate(order):
+    spec = table[orig_idx]
+    circuits_by_id[spec["circuit_id"]] = {
+        "spec": spec,
+        "counts": raw_counts[i]
+    }
+```
+
+---
+
+## 8. Időbélyegek és Audit-Trail Transzparencia
+
+- **Máté jóslatának rögzítése (Gate 6 commit `3bbee7f`):** 2026-11-18 18:21:07 UTC
+- **QPU beküldés (Gate 7 job `dbuupiv82tmc73du4u70`):** 2026-11-18 18:21:38 UTC (31 másodperccel a jóslat után)
+- **Megjegyzés:** Mivel a repó egyben lett pusholva a GitHubra a mérés után, külső szemlélő számára a megelőzés hitelességét a git commit időbélyege és az IBM Quantum rendszerében rögzített job létrehozási idő garantálja.

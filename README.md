@@ -13,26 +13,29 @@
 
 The pre-registered master analyzer was executed on the raw count data from IBM Marrakesh without modification:
 
-- **Primary Hypothesis P1 (Interaction Protection):** **SUPPORTED**
+- **Primary Hypothesis P1 (Interaction Protection):** **SUPPORTED** (Tankönyvi QM igazolva, Máté jóslata elbukott)
   - **$\Delta S(6) = |S_J(6)| - |S_{J=0}(6)| = +0.5527$**
   - **99% Bootstrap CI:** `[0.5385, 0.5671]`, strictly exceeding pre-registered threshold $\delta_\text{min} = 0.05$.
   - **One-Sided p-value:** $p < 10^{-5}$ ($0.0$).
-- **Hypothesis P2 (Gumicsere / Inhomogeneity Test):** **RING HOMOGENEITY CONFIRMED**
+  - **Máté jóslata (nem teljesült):** Máté feltételezte, hogy a peremtelen gyűrűgeometria miatt a periódus-kettőződés élettartama meghaladja a zajos Aer szimuláció jóslatát ($> +0.66$). A mért kontraszt $+0.5527$ lett, ami elmarad az Aer $+0.6605$-ös jóslatától a fizikai Heron r2 kétqubites CZ kapuhulladéka és a nézőpont-qubitek fáziszaja miatt.
+- **Hypothesis P2 (Gumicsere / Inhomogeneity Test):**
   - Subharmonic order parameter variance across 4 cyclic disorder shifts on the physical ring: $\text{Var}(S) = 0.000076$ ($\sigma = 0.0087$).
-  - Confirms that the closed boundary-free 12-qubit ring topology averages out physical qubit irregularities.
+  - A kvázi-rendezetlenség pozíciója a gyűrűn belül nem számított (összemérhető a futáson belüli drift $\sigma = 0.0081$-ével), de nyitott 12-es lánc kontroll és előre rögzített küszöb hiányában ebből nem állítható, hogy a peremtelen gyűrű nyújt védelmet.
+- **Triangle Module ($N=3$):**
+  - Máté jóslata (hogy a zárt él fenntartja a dinamikát) nem teljesült: a zárt háromszög erősen elnyomott ($S = 0.1917$) a nyitott úthoz képest ($S = 0.6673$). Ugyanakkor a zárt háromszögben 54 CZ kapu futott a SWAP-ok miatt, míg a nyitott útban csak 24 CZ kapu; kapuszámra illesztett kontroll nélkül a kapuzaj és a geometriai frusztráció nem választható szét.
 - **Hypothesis P3 ($\varepsilon$-Tolerance Plató):** **CONFIRMED**
-  - The interacting system maintains high subharmonic order across perturbations ($S_J(\varepsilon=0.10) = 0.6690$), whereas the non-interacting system collapses rapidly ($S_{J=0}(\varepsilon=0.10) = 0.1163$) and undergoes phase-inversion beats.
-- **Hypothesis Evaluation (Máté's Prediction vs Hardware):**
-  - Máté hypothesized that boundary-free ring geometry would yield contrast exceeding the noisy Aer simulation ($> +0.66$).
-  - Measured QPU contrast is $+0.5527$. The positive DTC stabilization is confirmed, but lower than Aer noisy (+0.6605) due to real device CZ gate infidelities and spectator crosstalk on Heron r2, in strict accordance with textbook open quantum systems physics.
+  - Az kölcsönható rendszer stabil marad a perturbációval szemben ($S_J(\varepsilon=0.10) = 0.6690$), míg a nem kölcsönható rendszer gyorsan összeomlik ($S_{J=0}(\varepsilon=0.10) = 0.1163$) és $t=8$-nál fázist fordít.
 
-For full trajectories, tables, and plots, see [`results/RESULTS_SUMMARY.md`](file:///E:/Silent%20Coder/quantum-time-crystal-ring/results/RESULTS_SUMMARY.md).
+Részletes táblázatok, pályák és elemzések: [`results/RESULTS_SUMMARY.md`](results/RESULTS_SUMMARY.md).
+
+### Nyers Adatok Visszafejtése (Shuffle Inversion)
+A hardveres drift kiküszöbölésére az 85 áramkör determinisztikusan keverve (seed `20261119`) futott a QPU-n. A [`data/raw/raw_counts_dbuupiv82tmc73du4u70.json`](data/raw/raw_counts_dbuupiv82tmc73du4u70.json) fájl $i$-edik eleme a [`data/raw/submission_record_dbuupiv82tmc73du4u70.json`](data/raw/submission_record_dbuupiv82tmc73du4u70.json) fájl `execution_order[i]` indexe szerinti áramkörhöz tartozik.
 
 ---
 
 ## Abstract
 
-This repository investigates the lifetime and $\varepsilon$-tolerance of period-doubling subharmonic oscillations (discrete time crystalline signatures) in periodically driven Floquet spin systems on an IBM Heron superconducting quantum processor (`ibm_kingston`). 
+This repository investigates the lifetime and $\varepsilon$-tolerance of period-doubling subharmonic oscillations (discrete time crystalline signatures) in periodically driven Floquet spin systems on an IBM Heron superconducting quantum processor (`ibm_marrakesh`, authorized deviation DEV-001 from `ibm_kingston`). 
 
 We implement two distinct closed geometries:
 1. A **3-qubit triangle ($C_3$)**, realizing periodic boundary conditions via active SWAP routing over a linear transmon chain.

@@ -1,10 +1,10 @@
 # Pre-Measurement Predictions: 3-Column Protocol
 
 **Repository:** `quantum-time-crystal-ring`  
-**Target:** `ibm_kingston` (156Q Heron r2)  
+**Target:** `ibm_marrakesh` (156Q Heron r2; authorized deviation DEV-001 from ibm_kingston)  
 **Rule:** All three columns must be frozen, committed, and hashed prior to QPU job creation.
 
-| Observable / Question | 1. Máté's Prediction (Lead Engineer) | 2. Textbook Quantum Mechanics (Ideal Simulation) | 3. Noisy Aer Model (Live Kingston Snapshot, F1 Reference) |
+| Observable / Question | 1. Máté's Prediction (Lead Engineer) | 2. Textbook Quantum Mechanics (Ideal Simulation) | 3. Noisy Aer Model (Live Marrakesh Snapshot, F1 Reference) |
 | :--- | :--- | :--- | :--- |
 | **$P_1$: Interaction Protection** ($S_J(t^*) - S_{J=0}(t^*)$ at $\varepsilon_0$) | **$S_J(t^*) - S_{J=0}(t^*) > 0$**, az élettartam meghaladja az Aer jóslatot (Máté hipotézise) | **+0.8074** ($S_J = 0.9291$, $S_{J=0} = 0.1217$) | **+0.6605** ($S_J = 0.7962$, $S_{J=0} = 0.1357$), 99% CI: [0.6441, 0.6770] |
 | **$P_2$: Gumicsere (Permutation)** (Physical Qubit vs Logical Disorder Site) | A gyűrű geometriai szimmetriája védi az állapotot a fizikai egyenetlenséggel szemben | **Logical disorder site governs** (noiseless layout has zero physical defect) | **Physical qubit defects compete** (device noise adds site-dependent readout/CZ variation) |
