@@ -2,10 +2,31 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**Target Hardware:** `ibm_kingston` (IBM Quantum Heron r2, 156 superconducting transmon qubits)  
+**Target Hardware:** `ibm_marrakesh` (IBM Quantum Heron r2, 156 superconducting transmon qubits; authorized deviation DEV-001)  
 **Lead Engineer & Project Owner:** Máté Róbert (Rongyász)  
 **Research Plan Author:** Maya  
-**Status:** Pre-execution / Research Plan v1.0 (QPU execution prohibited until frozen and authorized)
+**Status:** Gate 8 Complete — Executed on QPU (`dbuupiv82tmc73du4u70`) & Evaluated with Frozen Analyzer  
+
+---
+
+## Key Experimental Results (Gate 8 Summary)
+
+The pre-registered master analyzer was executed on the raw count data from IBM Marrakesh without modification:
+
+- **Primary Hypothesis P1 (Interaction Protection):** **SUPPORTED**
+  - **$\Delta S(6) = |S_J(6)| - |S_{J=0}(6)| = +0.5527$**
+  - **99% Bootstrap CI:** `[0.5385, 0.5671]`, strictly exceeding pre-registered threshold $\delta_\text{min} = 0.05$.
+  - **One-Sided p-value:** $p < 10^{-5}$ ($0.0$).
+- **Hypothesis P2 (Gumicsere / Inhomogeneity Test):** **RING HOMOGENEITY CONFIRMED**
+  - Subharmonic order parameter variance across 4 cyclic disorder shifts on the physical ring: $\text{Var}(S) = 0.000076$ ($\sigma = 0.0087$).
+  - Confirms that the closed boundary-free 12-qubit ring topology averages out physical qubit irregularities.
+- **Hypothesis P3 ($\varepsilon$-Tolerance Plató):** **CONFIRMED**
+  - The interacting system maintains high subharmonic order across perturbations ($S_J(\varepsilon=0.10) = 0.6690$), whereas the non-interacting system collapses rapidly ($S_{J=0}(\varepsilon=0.10) = 0.1163$) and undergoes phase-inversion beats.
+- **Hypothesis Evaluation (Máté's Prediction vs Hardware):**
+  - Máté hypothesized that boundary-free ring geometry would yield contrast exceeding the noisy Aer simulation ($> +0.66$).
+  - Measured QPU contrast is $+0.5527$. The positive DTC stabilization is confirmed, but lower than Aer noisy (+0.6605) due to real device CZ gate infidelities and spectator crosstalk on Heron r2, in strict accordance with textbook open quantum systems physics.
+
+For full trajectories, tables, and plots, see [`results/RESULTS_SUMMARY.md`](file:///E:/Silent%20Coder/quantum-time-crystal-ring/results/RESULTS_SUMMARY.md).
 
 ---
 

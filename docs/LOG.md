@@ -47,3 +47,24 @@ All timestamps recorded in UTC and Budapest local time. Every step is an atomic 
 ### [2026-11-18 18:20 UTC | 19:20 Budapest]
 - **Gate 6 Closed:** Máté registered his personal hypothesis in `docs/PREDICTIONS.md` Column 1 (*"A perem nélküli zárt 12-es gyűrű geometriai védelmet nyújt, így a periódus-kettőződés élettartama meghaladja a zajos Aer becslést"*).
 - **Gate 7 Authorized:** Máté formally authorized single-job QPU dispatch to `ibm_marrakesh` (85 circuits, 2048 shots).
+
+---
+
+### [2026-11-18 18:22 UTC | 19:22 Budapest]
+- **Gate 7 Execution:** Unified batch job submitted and executed on `ibm_marrakesh` (Heron r2, 156Q).
+- **Job ID:** `dbuupiv82tmc73du4u70`
+- **Circuits Executed:** 85 circuits $\times$ 2048 shots, randomized via deterministic shuffle seed `20261119`.
+- **Runtime:** Completed in ~7.8 seconds on physical QPU.
+- **Data Persistence:** Raw counts saved to `data/raw/raw_counts_dbuupiv82tmc73du4u70.json`; dispatch metadata saved to `data/raw/submission_record_dbuupiv82tmc73du4u70.json`.
+
+---
+
+### [2026-11-18 18:28 UTC | 19:28 Budapest]
+- **Gate 8 Analysis:** Frozen master analyzer (`src/analyzer.py`, SHA256 frozen in Gate 5) executed without modification via `src/run_analysis_qpu.py`.
+- **Primary Hypothesis P1:** `SUPPORTED`
+  - Contrast at $t^*=6$: $\Delta S(6) = +0.5527$ [99% CI: 0.5385, 0.5671], $p < 10^{-5}$.
+  - Point difference strictly exceeds $\delta_\text{min} = 0.05$.
+- **Hypothesis P2 (Gumicsere):** Confirmed high topological homogeneity across cyclic disorder permutations ($\text{Var} = 0.000076$).
+- **Hypothesis P3 ($\varepsilon$-Tolerance Plató):** Confirmed stable subharmonic order up to $\varepsilon = 0.10$ ($S_J = 0.6690$) vs collapse of non-interacting control ($S_{J=0} = 0.1163$).
+- **Column 1 Comparison:** Experimental contrast (+0.5527) is positive, but lower than noisy Aer (+0.6605) due to physical gate noise and crosstalk on Heron r2.
+- **Gate 8 Closed:** Analysis and summary artifacts committed. Project execution complete.
