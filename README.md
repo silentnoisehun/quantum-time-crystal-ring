@@ -16,7 +16,7 @@ The pre-registered master analyzer was executed on the raw count data from IBM M
 - **Primary Hypothesis P1 (Interaction Protection):** **SUPPORTED** (Tankönyvi QM igazolva, Máté jóslata elbukott)
   - **$\Delta S(6) = |S_J(6)| - |S_{J=0}(6)| = +0.5527$**
   - **99% Bootstrap CI:** `[0.5385, 0.5671]`, strictly exceeding pre-registered threshold $\delta_\text{min} = 0.05$.
-  - **One-Sided p-value:** $p < 10^{-5}$ ($0.0$).
+  - **One-Sided p-value:** $p < 10^{-5}$ ($0$ out of $20\,000$ bootstrap resamples, upper bound $1/N_\text{boot} = 5 \times 10^{-5}$).
   - **Máté jóslata (nem teljesült):** Máté feltételezte, hogy a peremtelen gyűrűgeometria miatt a periódus-kettőződés élettartama meghaladja a zajos Aer szimuláció jóslatát ($> +0.66$). A mért kontraszt $+0.5527$ lett, ami elmarad az Aer $+0.6605$-ös jóslatától a fizikai Heron r2 kétqubites CZ kapuhulladéka és a nézőpont-qubitek fáziszaja miatt.
 - **Hypothesis P2 (Gumicsere / Inhomogeneity Test):**
   - Subharmonic order parameter variance across 4 cyclic disorder shifts on the physical ring: $\text{Var}(S) = 0.000076$ ($\sigma = 0.0087$).
@@ -77,7 +77,14 @@ quantum-time-crystal-ring/
 ## Core Rules & Verification Protocols
 
 1. **Gate Sequence Integrity:** Every step must pass its defined gate before proceeding.
-2. **Device Dedication:** Exclusively executed on `ibm_kingston`. Fallback backends are strictly prohibited.
+2. **Device Dedication:** Exclusively executed on `ibm_kingston` (or authorized target `ibm_marrakesh` per DEV-001). Fallback backends are strictly prohibited.
 3. **Graph Fidelity:** Circuits are tested for exact topology ($C_3$ and $C_{12}$) with mandatory negative controls rejecting non-target topologies.
 4. **Count-Level Statistics:** All metrics ($m(t)$, $S(t)$, $\chi^2$, Wilson score intervals, and bootstrap errors) are derived directly from integer bitstring counts.
 5. **No Ad-Hoc Tuning:** Parameters, seeds, and QPU layouts are selected algorithmically and frozen prior to job submission.
+
+---
+
+## Future Work & Next Steps (Gate 9 Proposals)
+
+1. **Gate-Count-Matched Triangle Control ($N=3$):** Implement a dummy-padded open path circuit with identical CZ gate depth (adding 30 identity-pair CZ/SWAP operations) to definitively separate hardware gate noise from genuine geometric frustration.
+2. **Boundary-Cut 12-Qubit Chain ($C_{12} \to P_{12}$):** Measure an open 12-qubit linear chain by cutting a single edge on the identical physical transmons, rigorously testing the boundary-free topological protection hypothesis for $P_2$.

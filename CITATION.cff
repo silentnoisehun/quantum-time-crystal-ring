@@ -21,9 +21,10 @@ abstract: >-
 
   Key Findings:
   - Primary Hypothesis P1 (Interaction Protection): SUPPORTED (Delta S(6) = +0.5527
-    [99% CI: 0.5385, 0.5671], p < 1e-5), demonstrating that many-body Ising interactions
-    (J=0.4) stabilize period-doubling against single-qubit perturbation phase error (eps=0.10)
-    where the non-interacting control rapidly collapses (S_J0 = 0.1163).
+    [99% CI: 0.5385, 0.5671], p < 1e-5, 0 out of 20,000 bootstrap resamples),
+    demonstrating that many-body Ising interactions (J=0.4) stabilize period-doubling
+    against single-qubit perturbation phase error (eps=0.10) where the non-interacting control
+    rapidly collapses (S_J0 = 0.1163).
   - Hypothesis P2 (Gumicsere / Inhomogeneity): Cyclic disorder permutations exhibit low
     variance (Var = 0.000076, sigma = 0.0087), indicating that physical qubit variation
     is averaged out across the closed ring topology.

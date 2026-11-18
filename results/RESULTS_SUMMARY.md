@@ -15,7 +15,7 @@
 
 | Pre-Registered Observable | Frozen Criterion | Hardware Outcome | Verdict |
 | :--- | :--- | :--- | :--- |
-| **$P_1$: Interaction Protection (DTC Order)** | $\Delta S(t^*) = \|S_J(6)\| - \|S_{J=0}(6)\| > 0.05$, $p < 0.0033$, CI99 low $> 0$ | **$\Delta S(6) = +0.5527$** [99% CI: **0.5385, 0.5671**], $p < 10^{-5}$ | **SUPPORTED (Tankönyvi QM teljesült; Máté jóslata nem)** |
+| **$P_1$: Interaction Protection (DTC Order)** | $\Delta S(t^*) = \|S_J(6)\| - \|S_{J=0}(6)\| > 0.05$, $p < 0.0033$, CI99 low $> 0$ | **$\Delta S(6) = +0.5527$** [99% CI: **0.5385, 0.5671**], $p < 10^{-5}$ ($0$ out of $20\,000$ bootstrap resamples) | **SUPPORTED (Tankönyvi QM teljesült; Máté jóslata nem)** |
 | **$P_2$: Gumicsere (Inhomogeneity Test)** | Comparison of order across cyclic disorder shifts $\sigma \in \{0, 3, 6, 9\}$ | $S \in [0.6448, 0.6690]$, $\text{Var} = 0.000076$ ($\sigma = 0.0087$) | **A zavar helye nem számított a gyűrűn, de kontroll és küszöb híján a peremtelen védelem nem állítható** |
 | **$P_3$: $\varepsilon$-Tolerance Plateau** | Plateau in $S_J(\varepsilon)$ vs collapse in $S_{J=0}(\varepsilon)$ | $S_J(\varepsilon=0.10) = 0.6690$ vs $S_{J=0}(\varepsilon=0.10) = 0.1163$ | **Plató megfigyelve** |
 
@@ -140,3 +140,10 @@ for i, orig_idx in enumerate(order):
 - **Máté jóslatának rögzítése (Gate 6 commit `3bbee7f`):** 2026-11-18 18:21:07 UTC
 - **QPU beküldés (Gate 7 job `dbuupiv82tmc73du4u70`):** 2026-11-18 18:21:38 UTC (31 másodperccel a jóslat után)
 - **Megjegyzés:** Mivel a repó egyben lett pusholva a GitHubra a mérés után, külső szemlélő számára a megelőzés hitelességét a git commit időbélyege és az IBM Quantum rendszerében rögzített job létrehozási idő garantálja.
+
+---
+
+## 9. Következő Lépések (Gate 9 Javaslatok)
+
+1. **Kapuszám-illesztett háromszög kontroll ($N=3$):** A nyitott láncba 30 dummy CZ/SWAP műveletpár beépítése, amellyel azonos kapumélység mellett azonnal szétválasztható a geometriai frusztráció a transmon kapuhulladéktól.
+2. **Perem-vágott 12-qubites nyitott lánc ($C_{12} \to P_{12}$):** A 12-es gyűrű egyetlen élének elvágásával mért nyitott lánc pontosan ugyanazokon a fizikai qubiteken lezárja a $P_2$-ben nyitva hagyott peremfeltétel-kérdést.
