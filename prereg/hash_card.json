@@ -4,7 +4,7 @@
   "date_budapest": "2026-11-18T19:18:00+01:00",
   "hashes": {
     "docs/PLAN_v1.0.md": "0e58dbee07bb7323eff35d792a1fffb53c8c0fa546df2fc06594df192d066de8",
-    "docs/PREDICTIONS.md": "d7fcf52996ff1a5780292fd4dc77301611cbf4781f3744780771acafbebce369",
+    "docs/PREDICTIONS.md": "00c7439f3f36eb2d8b6d6f6b885340ffc5b774a0e83eb91e86f13761a0bcfd9b",
     "src/analyzer.py": "70996dd7edea0d8e0699a8f928fcf372617fd4e76544dcc4bed9a42f0479183b",
     "prereg/circuit_table.json": "e89ffdfd8defa8acdfb323e20af9b8aad783a04bd4c70ebe397598d714031a1b",
     "prereg/frozen_parameters.json": "6d33bcc8174bcd7d4ac17b080ca4eaeb79ce2bd70e52ed337aabeefa8526b755"

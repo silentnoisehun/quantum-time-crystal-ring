@@ -41,3 +41,9 @@ All timestamps recorded in UTC and Budapest local time. Every step is an atomic 
 ### [2026-11-18 18:18 UTC | 19:18 Budapest]
 - **Gate 4 Closed:** Master analyzer validated (`src/validate_analyzer.py`). Null-test ($N=1000$): Type I error = 0.0000, error rate = 0.0000. Power at $\delta_\text{min}=0.05$ ($N=300$): 100.0%.
 - **Gate 5 Closed:** Master circuit table (85 circuits), parameter card, and SHA256 hash card frozen in `prereg/`. Master commit ready.
+
+---
+
+### [2026-11-18 18:20 UTC | 19:20 Budapest]
+- **Gate 6 Closed:** Máté registered his personal hypothesis in `docs/PREDICTIONS.md` Column 1 (*"A perem nélküli zárt 12-es gyűrű geometriai védelmet nyújt, így a periódus-kettőződés élettartama meghaladja a zajos Aer becslést"*).
+- **Gate 7 Authorized:** Máté formally authorized single-job QPU dispatch to `ibm_marrakesh` (85 circuits, 2048 shots).
