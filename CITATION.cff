@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this dataset or software, please cite it as below."
 title: "Quantum Time Crystal Ring: Period-Doubling Subharmonic Dynamics and Perturbation Tolerance on a 12-Qubit Superconducting Lattice Ring"
+doi: "10.5281/zenodo.24352510"
 version: "1.0.0"
 date-released: "2026-11-18"
 repository-code: "https://github.com/silentnoisehun/quantum-time-crystal-ring"

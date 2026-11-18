@@ -1,5 +1,6 @@
 # Quantum Time Crystal Ring: Period-Doubling on the Triangle and 12-Qubit Ring
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24352510.svg)](https://doi.org/10.5281/zenodo.24352510)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **Target Hardware:** `ibm_marrakesh` (IBM Quantum Heron r2, 156 superconducting transmon qubits; authorized deviation DEV-001)  
